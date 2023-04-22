@@ -1,5 +1,6 @@
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -11,7 +12,8 @@ public class Main {
             System.out.println(strängar.size());
             int MängdErrors = errorletare(strängar);
             System.out.println("Du har " + MängdErrors + " Errors i din kod");
-            githubletare(strängar);
+            ArrayList<String> github = githubletare(strängar);
+            System.out.println(github);
         } catch (FileNotFoundException e) {
             System.out.println("Du har något fel på din fil");
         }
@@ -38,12 +40,14 @@ public class Main {
         return MängdErrors;
     }
 
-    public static void githubletare (ArrayList<String> malte){
+    public static ArrayList<String> githubletare (ArrayList<String> malte){
+        ArrayList<String> githublista = new ArrayList<>();
         for (String element: malte){
             if (element.contains("github")){
-                System.out.println(element);
+                githublista.add(element + "\n");
             }
         }
+        return githublista;
     }
 
 }
