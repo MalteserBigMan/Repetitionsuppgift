@@ -11,6 +11,7 @@ public class Main {
             System.out.println(strängar.size());
             int MängdErrors = errorletare(strängar);
             System.out.println("Du har " + MängdErrors + " Errors i din kod");
+            githubletare(strängar);
         } catch (FileNotFoundException e) {
             System.out.println("Du har något fel på din fil");
         }
@@ -35,6 +36,14 @@ public class Main {
                 MängdErrors++;}
             }
         return MängdErrors;
+    }
+
+    public static void githubletare (ArrayList<String> malte){
+        for (String element: malte){
+            if (element.contains("github")){
+                System.out.println(element);
+            }
+        }
     }
 
 }
